@@ -1,17 +1,11 @@
 #from gevent import monkey
 #monkey.patch_all()
 from dateutil import rrule
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 from itertools import product
 import time
 import os
-from datetime import datetime, timedelta
 
-#from concurrent.futures import ThreadPoolExecutor
-#import gevent
-#import requests
-from functools import partial
-from tqdm import tqdm
 
 rundict = {
     1: "short_range",
@@ -173,6 +167,7 @@ urlbasedict_retro = {
     2: "s3://noaa-nwm-retrospective-2-1-pds/model_output/",
 }
 
+
 def selecturlbase(urlbasedict, urlbaseinput, defaulturlbase=""):
     if urlbaseinput:
         return urlbasedict[urlbaseinput]
@@ -221,7 +216,8 @@ def generate_urls_retro(
             for item in file_list:
                 file.write(f"{item}\n")
     return file_list
-    
+
+
 def create_file_list(
     runinput,
     varinput,
@@ -500,7 +496,7 @@ def generate_urls_operational(start_date,end_date, fcst_cycle, lead_time, varinp
     
     if runinput == 1 or runinput == 5 or runinput == 6 or runinput == 7 or runinput == 8 or runinput == 9 or runinput == 10 or runinput == 11:
         meminput = None 
-        print("no ensumble members available for the given runinput therefore, meminput set to None")
+        print("no ensemble members available for the given runinput therefore, meminput set to None")
     # rundict = {
     # 1: "short_range",
     # 2: "medium_range",

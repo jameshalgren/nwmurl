@@ -169,7 +169,7 @@ urlbasedict_retro = {
 
 
 def selecturlbase(urlbasedict, urlbaseinput, defaulturlbase=""):
-    if urlbaseinput:
+    if urlbaseinput in urlbasedict:
         return urlbasedict[urlbaseinput]
     else:
         return defaulturlbase

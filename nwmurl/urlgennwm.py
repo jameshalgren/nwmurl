@@ -534,3 +534,4 @@ def generate_urls_operational(start_date,end_date, fcst_cycle, lead_time, varinp
                 for item in file_list:
                     file.write(f"{item}\n")
     return file_list
+    
